@@ -18,7 +18,7 @@ const Projects = () => {
       accentClass: "text-blue-400",
       borderClass: "hover:border-blue-500/40",
       github: "#",
-     
+      demo: null,
     },
     {
       title: "GST Billing & Analytics Platform",
@@ -34,11 +34,11 @@ const Projects = () => {
       icon: Receipt,
       accentClass: "text-emerald-400",
       borderClass: "hover:border-emerald-500/40",
-      github: "#",
-      demo: "#",
+      github: "https://github.com/lalithkishore2260/bizegrow/tree/main/bizgrow-billing-ad90aaae-main",
+      demo: null,
     },
     {
-  title: "IRCTC Train Booking System Clone",
+      title: "IRCTC Train Booking System Clone",
   tagline: "Captcha-free secure railway booking web application",
   description: "A modern IRCTC-style railway booking system with captcha-free authentication using OTP verification and intelligent behavioral tracking to prevent bots. Includes train search, ticket booking, payment simulation, and a complete user dashboard.",
   features: [
@@ -53,9 +53,9 @@ const Projects = () => {
   icon: Train,
   accentClass: "text-orange-400",
   borderClass: "hover:border-orange-500/40",
-  github: "#",
-  demo: "#",
-},
+      github: "https://github.com/lalithkishore2260/Reverse_eng",
+      demo: null,
+    },
     {
       title: "R.V. Wire Cut Bricks Business Website",
       tagline: "Professional website for a construction company",
@@ -71,7 +71,7 @@ const Projects = () => {
       accentClass: "text-amber-400",
       borderClass: "hover:border-amber-500/40",
       github: "#",
-      demo: "#",
+      demo: "https://rv-bricks.vercel.app/",
     },
     {
       title: "Sri Karpaga Vinyagar Chits — Account Manager",
@@ -88,7 +88,7 @@ const Projects = () => {
       accentClass: "text-violet-400",
       borderClass: "hover:border-violet-500/40",
       github: "#",
-      demo: "#",
+      demo: "https://sri-karpaga-chits-manager.vercel.app/",
     },
     {
       title: "Smart Health Monitoring System",
@@ -104,8 +104,8 @@ const Projects = () => {
       icon: HeartPulse,
       accentClass: "text-rose-400",
       borderClass: "hover:border-rose-500/40",
-      github: "#",
-      demo: "#",
+      github: "https://github.com/lalithkishore2260/digitalhealthrecordwallet",
+      demo: null,
     },
   ];
 
@@ -126,6 +126,7 @@ const Projects = () => {
               <div
                 key={index}
                 className={`glassmorphism p-6 rounded-2xl border border-transparent ${project.borderClass} transition-smooth hover:scale-[1.02] group flex flex-col`}
+                style={{ "--animation-delay": `${index * 100}ms` } as React.CSSProperties}
               >
                 <div className="flex items-center gap-3 mb-3">
                   <div className={`p-2 rounded-lg bg-muted/50 ${project.accentClass}`}>
@@ -167,15 +168,22 @@ const Projects = () => {
                 </div>
 
                 <div className="flex gap-3 pt-3 border-t border-border">
-                  <Button size="sm" variant="outline" className="flex-1 group/btn">
-                    <Github className="w-4 h-4 mr-2 group-hover/btn:rotate-12 transition-smooth" />
-                    Code
-                  </Button>
-                  <Button size="sm" className="flex-1 group/btn">
-                    <ExternalLink className="w-4 h-4 mr-2 group-hover/btn:translate-x-1 transition-smooth" />
-                    Live
-                  </Button>
-                </div>
+  <a href={project.github} target="_blank" rel="noopener noreferrer" className={`${project.demo ? 'flex-1' : 'w-full'}`}>
+    <Button size="sm" variant="outline" className="w-full group/btn">
+      <Github className="w-4 h-4 mr-2 group-hover/btn:rotate-12 transition-smooth" />
+      Code
+    </Button>
+  </a>
+  {project.demo && (
+    <a href={project.demo} target="_blank" rel="noopener noreferrer" className="flex-1">
+      <Button size="sm" className="w-full group/btn">
+        <ExternalLink className="w-4 h-4 mr-2 group-hover/btn:translate-x-1 transition-smooth" />
+        Live
+      </Button>
+    </a>
+  )}
+</div>
+
               </div>
             );
           })}
