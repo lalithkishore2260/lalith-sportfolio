@@ -17,7 +17,7 @@ const Projects = () => {
       icon: BarChart3,
       accentClass: "text-blue-400",
       borderClass: "hover:border-blue-500/40",
-      github: "#",
+      github: "https://github.com/lalithkishore2260/brick-price-predictor",
       demo: null,
     },
     {
